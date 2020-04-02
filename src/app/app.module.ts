@@ -13,6 +13,9 @@ import { ComHomeComponent } from './com-home/com-home.component';
 import { ComProfileComponent } from './com-profile/com-profile.component';
 import { ComDashboardComponent } from './com-dashboard/com-dashboard.component';
 import { ReportComponent } from './report/report.component';
+import { AuthGuard } from './auth.guard';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ServiceInterceptor } from './helpers/service.interceptor';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { ReportComponent } from './report/report.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: ServiceInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
