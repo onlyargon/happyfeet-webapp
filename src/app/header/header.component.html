@@ -1,0 +1,21 @@
+<mat-toolbar
+  color="primary"
+  class="col-sm-12"
+>
+  <div class="col-sm-8">
+    <h1>Happy feet</h1>
+  </div>
+
+  <div>
+    <button mat-flat-button>
+      <mat-icon>person_outline</mat-icon> Logged user : {{ loggedUser }}
+    </button>
+    <button mat-button>
+      <mat-icon>notifications_none</mat-icon> Notifications
+    </button>
+    <button mat-button><mat-icon>build</mat-icon> Settings</button>
+    <button mat-flat-button color="warn" (click)="signOut()">
+      <mat-icon>power_settings_new</mat-icon>Logout
+    </button>
+  </div>
+</mat-toolbar>

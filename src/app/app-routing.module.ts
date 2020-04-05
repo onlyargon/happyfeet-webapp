@@ -10,14 +10,24 @@ import { ReportComponent } from './report/report.component';
 import { ComDashboardComponent } from './com-dashboard/com-dashboard.component';
 import { ComProfileComponent } from './com-profile/com-profile.component';
 import { AboutComponent } from './about/about.component';
+import { HomeLayoutComponent } from './home-layout/home-layout.component';
 
 
 const routes: Routes = [
   {
     path: "",
-    component: HomeComponent,
+    component: HomeLayoutComponent,
     canActivate: [AuthGuard],
     children: [
+      {
+        path: "home",
+        component: HomeComponent
+      },
+      {
+        path: "",
+        redirectTo: "/home",
+        pathMatch: "full"
+      },
       {
         path: "profile",
         component: ProfileComponent

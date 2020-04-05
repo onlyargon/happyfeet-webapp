@@ -1,1 +1,68 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.container{
+  padding: 2%;
+}
+.full-width{
+  width: 100%;
+}
+
+.align-center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.v-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.vh100{
+  height: 90vh;
+  /* background-color: red; */
+}
+
+.mt-10{
+  margin-top: 10px;
+}
+
+.mt-50{
+  margin-top: 50px;
+}
+
+.testBg{
+  background-color: red;
+}
+
+.heading{
+  background-color: royalblue;
+  color: white;
+  height: 300px;
+  /* display: flex;
+  flex-direction: column; */
+}
+
+.page-headling{
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.page-sub{
+  text-align: center;
+}
+
+.footer{
+  margin-top: 50px;
+  height: 300px;
+  background-color: #CFD8DC;
+}
+
+

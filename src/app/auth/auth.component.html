@@ -1,1 +1,69 @@
-<p>auth works!</p>
+<div class="col-sm-12 container">
+  <div class="col-sm-6 vh100 align-center">
+    <h1>Welcome to Happy feet</h1>
+  </div>
+  <div class="col-sm-6 vh100 align-center">
+    <div class="row full-width">
+      <mat-card class="full-width">
+        <mat-card-header>
+          <mat-card-title>Login</mat-card-title>
+          <mat-card-subtitle>Enter your login details here</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <form>
+            <div class="col-sm-6">
+              <mat-form-field class="full-width">
+                <input type="text" matInput placeholder="Username" name="authUsername" [(ngModel)]="auth.username" required>
+              </mat-form-field>
+            </div>
+            <div class="col-sm-6">
+              <mat-form-field class="full-width">
+                <input type="password" matInput autocomplete="new-password" placeholder="Password" name="authPassword" [(ngModel)]="auth.password" required>
+              </mat-form-field>
+            </div>
+            <button mat-raised-button color="primary" (click)="signIn()">Login</button>
+          </form>
+
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="row mt-10 full-width">
+      <mat-card >
+        <mat-card-header>
+          <mat-card-title>Register</mat-card-title>
+          <mat-card-subtitle>Select your profile type and register</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <form>
+
+            <div class="col-sm-12">
+              <mat-radio-group aria-label="Select an option" name="userType" [(ngModel)]="user.userType">
+                <mat-radio-button value="Customer">Customer</mat-radio-button>
+                <mat-radio-button value="Company">Company</mat-radio-button>
+              </mat-radio-group>
+
+              <mat-form-field class="full-width">
+                <input type="text" matInput placeholder="Username" name="Username" [(ngModel)]="user.username" required>
+              </mat-form-field>
+            </div>
+
+            <div class="col-sm-6">
+              <mat-form-field class="full-width">
+                <input type="password" autocomplete="new-password" matInput placeholder="Password" name="Password" [(ngModel)]="user.password" required>
+              </mat-form-field>
+            </div>
+            <div class="col-sm-6">
+              <mat-form-field class="full-width">
+                <input type="password" autocomplete="off" matInput placeholder="Confirm Password" name="cPassword" [(ngModel)]="user.cpassword" required>
+              </mat-form-field>
+            </div>
+            <button mat-raised-button color="primary" (click)="register()">Register</button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
