@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HOME_URL } from '../helpers/appConstant';
 import { sha256 } from 'js-sha256';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private _router:Router) { }
 
   signIn(username, password) {
 
@@ -43,5 +44,10 @@ export class AuthService {
     console.log(body);
     debugger;
     return this.http.post(url, body);
+  }
+
+  signOut() {
+    localStorage.clear();
+    this._router.navigate(['auth']);
   }
 }

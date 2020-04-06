@@ -26,6 +26,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatDividerModule } from '@angular/material/divider';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthService } from './auth/auth.service';
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
@@ -60,7 +61,8 @@ import { HeaderComponent } from './header/header.component';
     MatButtonModule,
     MatRadioModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDividerModule
   ],
   providers: [
     AuthGuard,

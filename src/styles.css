@@ -37,6 +37,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   margin-top: 50px;
 }
 
+.p-5{
+  padding: 5%;
+}
+
 .testBg{
   background-color: red;
 }
@@ -65,4 +69,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color: #CFD8DC;
 }
 
+.WhiteBg{
+  background-color: white;
+}
+
+hr{
+  border-color: rgb(117, 121, 133);
+  opacity: 0.1;
+  margin-bottom: 20px;
+}
 

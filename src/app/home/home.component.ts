@@ -25,4 +25,12 @@ export class HomeComponent implements OnInit {
     this._route.navigate(['contact']);
   }
 
+  findStore(){
+
+  }
+
+  myOrders(){
+
+  }
+
 }

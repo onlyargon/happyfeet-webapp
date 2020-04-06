@@ -7,7 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  loggedUser = 'Hello there';
+  user = {} as any;
+  constructor() {
+    this.user = {
+      address : {} as any,
+      basicInfo : {} as any
+    }
+  }
 
   ngOnInit(): void {
   }
