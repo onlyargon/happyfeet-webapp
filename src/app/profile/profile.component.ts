@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from './profile.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-profile',
@@ -12,7 +13,7 @@ export class ProfileComponent implements OnInit {
   loggedUser = 'there!';
   subHeaidng = ""
   user = {} as any;
-  constructor(private _service: ProfileService) {
+  constructor(private _service: ProfileService, private _ts:ToastrService) {
     this.user = {
       address : {} as any,
       basicInfo : {} as any
@@ -43,11 +44,20 @@ export class ProfileComponent implements OnInit {
     if(this.user.basicInfo.id){
 
       this._service.updateProfile(this.user).subscribe((data:any)=> {
-        console.log(data);
+        if (data.Code == 0) {
+          this._ts.success(data.Message);
+        } else {
+          this._ts.error(data.Message);
+        }
       });
     } else {
       this._service.saveProfile(this.user).subscribe((data:any)=>{
-        console.log(data);
+        if (data.Code == 0) {
+          this._ts.success(data.Message);
+          this.user = data.Data
+        } else {
+          this._ts.error(data.Message);
+        }
       });
     }
   }
