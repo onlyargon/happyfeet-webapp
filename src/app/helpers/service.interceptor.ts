@@ -9,6 +9,11 @@ export class ServiceInterceptor implements HttpInterceptor {
                 'Bearer ' + localStorage.getItem('token')
             )
         });
+
+        console.log('*********** TOKEN **************');
+        console.log(localStorage.getItem('token'));
+        console.log('*********** TOKEN **************');
+
         return next.handle(newRequest);
     }
 }

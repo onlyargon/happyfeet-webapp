@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="col-sm-12 mt-50">
+    <h1>Order list</h1>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="orderNumber">
+        <th mat-header-cell *matHeaderCellDef> Order number </th>
+        <td mat-cell *matCellDef="let element"> {{element.orderNumber}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="orderStatus">
+        <th mat-header-cell *matHeaderCellDef> Order status </th>
+        <td mat-cell *matCellDef="let element"> {{element.orderStatus}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="acceptedDate">
+        <th mat-header-cell *matHeaderCellDef> Accepted Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.acceptedDate ? element.acceptedDate : 'N/A'}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="deliverOn">
+        <th mat-header-cell *matHeaderCellDef> Deliver On </th>
+        <td mat-cell *matCellDef="let element"> {{element.deliverOn ? element.deliverOn : 'N/A'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element"> {{element.deliverOn ? element.deliverOn : 'N/A'}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+</div>
+<div class="footer col-sm-12 v-center">
+  <p class="page-headling">Contact us</p><br>
+  <p class="page-sub"> 24x7 we are here for your co-oparation. Please feel free to contact us via hotline <br>or find the near by store to you.</p>
+  <button mat-flat-button color="primary" (click)="findStore()">Find Store</button>
+  <br>
+  <p><strong>Hotline</strong> : +94 777 123 4567 | <strong>Email</strong> : info@happyfeet.com | <strong>Address</strong> : 19/C Nugegoda, Colombo, Sri Lanka</p>
+</div>

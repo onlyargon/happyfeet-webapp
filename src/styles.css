@@ -79,3 +79,14 @@ hr{
   margin-bottom: 20px;
 }
 
+.float-right{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+table {
+  width: 100%;
+}
+

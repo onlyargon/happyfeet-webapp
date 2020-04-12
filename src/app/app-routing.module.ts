@@ -11,6 +11,7 @@ import { ComDashboardComponent } from './com-dashboard/com-dashboard.component';
 import { ComProfileComponent } from './com-profile/com-profile.component';
 import { AboutComponent } from './about/about.component';
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
 
 
 const routes: Routes = [
@@ -35,6 +36,15 @@ const routes: Routes = [
       {
         path: "",
         redirectTo: "/profile",
+        pathMatch: "full"
+      },
+      {
+        path: "my-orders",
+        component: MyOrdersComponent
+      },
+      {
+        path: "",
+        redirectTo: "/my-orders",
         pathMatch: "full"
       },
       {

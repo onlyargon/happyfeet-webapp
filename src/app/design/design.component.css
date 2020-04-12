@@ -1,0 +1,8 @@
+.shoe path{
+  stroke: #494949;
+  fill: #fff;
+}
+
+.shoe :hover{
+  fill: #adadad;
+}

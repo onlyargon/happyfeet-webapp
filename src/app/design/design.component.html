@@ -1,1 +1,105 @@
-<p>design works!</p>
+<div class="container">
+  <div class="col-sm-12 mt-50">
+    <div class="col-sm-6">
+      <h1>Design</h1>
+      <div class="col-sm-12 shoe">
+        <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 492.53 190">
+          <defs>
+            <style>
+              .cls-1 {
+                fill: none;
+                stroke: #000;
+                stroke-miterlimit: 10;
+                stroke-width: 5px;
+              }
+            </style>
+          </defs>
+
+          <a xlink:title="Sole">
+            <path class="cls-1" id="sole"
+              d="M70.89,194.1l-.5,42H201.32v-15s81.18,2.4,119.52,7.5c0,0,138.86,26,237.05-27v-22S492.5,228.5,323.5,210.5c0,0-17.89-1.93-41-4-21.44-1.92-47.89-6.9-71.76-6.9Z"
+              transform="translate(-67.86 -48.61)" />
+          </a>
+
+          <a xlink:title="Vamp">
+            <path class="cls-1" id="vamp"
+              d="M220.89,198.17s234,42.29,337-15.47c0,0,1-27.84-42-34h-71s-24-2.06-64-27.85l-9-7.22v40.23s-68-6.19-93,2.06C278.89,155.89,233.89,166.2,220.89,198.17Z"
+              transform="translate(-67.86 -48.61)" />
+          </a>
+          <a xlink:title="Quater">
+            <path class="cls-1" id="quater"
+              d="M75.89,193.6l144,5s9-60,152-43v-46s-43-38-98-58c0,0-70,97-182,34C91.89,85.6,57.89,125.6,75.89,193.6Z"
+              transform="translate(-67.86 -48.61)" />
+          </a>
+          <a xlink:title="Lace">
+            <line class="cls-1" x1="233.34" y1="13.71" x2="224.64" y2="25.89" />
+            <line class="cls-1" x1="253.14" y1="25.89" x2="246.64" y2="35.89" />
+            <line class="cls-1" x1="271.78" y1="35.89" x2="264.64" y2="46.89" />
+          </a>
+        </svg>
+      </div>
+
+      <div class="col-sm-12 mt-50">
+        <p>Enter size</p>
+        <form>
+          <mat-form-field class="full-width">
+            <input type="text" matInput placeholder="Eg: UK 11" name="shoeSize" [(ngModel)]="design.size" required>
+          </mat-form-field>
+        </form>
+
+        <p>Logo attachement</p>
+        <input type="file" name="logo" [(ngModel)]="design.attachement">
+      </div>
+      <div class="col-sm-12 mt-10 float-right">
+        <button mat-flat-button color="accent" (click)="goback()">Back</button>
+        <p>&nbsp;</p>
+        <button mat-flat-button color="primary" (click)="saveOrUpdateDesign()">Draft design</button>
+        <p>&nbsp;</p>
+        <button mat-flat-button color="primary" (click)="placeOrder()">Place order</button>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <h1>Customize</h1>
+      <div class="p-5 WhiteBg">
+        <p>Select VAMP color</p>
+        <color-twitter (onChangeComplete)="vampColorChage($event)"></color-twitter>
+        <br>
+        <p>Select QUATER color</p>
+        <color-twitter (onChangeComplete)="quaterColorChage($event)"></color-twitter>
+        <br>
+        <p>Select SOLE color</p>
+        <color-twitter (onChangeComplete)="soleColorChage($event)"></color-twitter>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <h1>My designs</h1>
+    <h3>Edit and place order</h3>
+    <div class="col-sm-12 WhiteBg">
+      <div class="col-sm-3 p-5" *ngFor="let des of myDesign">
+        <li>Size: {{des.size}}</li>
+        <li>Sole color: {{des.soleColor}}</li>
+        <li>Vamp : {{des.vampColor}}</li>
+        <li>Quater : {{des.quaterColor}}</li>
+        <div class="col-sm-12 mt-10 float-right">
+          <button mat-icon-button color="primary" (click)="editDesgin(des)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <p>&nbsp;</p>
+          <button mat-icon-button color="warn" (click)="deleteDesign(des)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer col-sm-12 v-center">
+  <p class="page-headling">Contact us</p><br>
+  <p class="page-sub"> 24x7 we are here for your co-oparation. Please feel free to contact us via hotline <br>or find
+    the near by store to you.</p>
+  <button mat-flat-button color="primary">Find Store</button>
+  <br>
+  <p><strong>Hotline</strong> : +94 777 123 4567 | <strong>Email</strong> : info@happyfeet.com |
+    <strong>Address</strong> : 19/C Nugegoda, Colombo, Sri Lanka</p>
+</div>

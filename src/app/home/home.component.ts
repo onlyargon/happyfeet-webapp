@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
   }
 
   myOrders(){
-
+    this._route.navigate(['my-orders']);
   }
 
 }

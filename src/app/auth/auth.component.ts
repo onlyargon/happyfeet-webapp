@@ -23,11 +23,17 @@ export class AuthComponent implements OnInit {
     if (this.auth.username && this.auth.password) {
       this._service
         .signIn(this.auth.username, this.auth.password)
-        .subscribe((data: any) => {
-          if (data.token) {
-            localStorage.setItem("token", data.token);
-            localStorage.setItem("user", data.Data);
-            this._router.navigate(['/']);
+        .subscribe((resp: any) => {
+          if (resp.token) {
+            localStorage.setItem("token", resp.token);
+            localStorage.setItem("userName", JSON.stringify(resp.data.Data.username));
+            localStorage.setItem("userId", JSON.stringify(resp.data.Data.userId));
+
+            if(resp.data.Data.isProfileCompleted){
+              this._router.navigate(['/']);
+            } else {
+              this._router.navigate(['/profile']);
+            }
           } else {
             this.toastr.error("Something went wrong!");
           }

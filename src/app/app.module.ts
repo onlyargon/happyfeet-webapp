@@ -27,10 +27,17 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatDividerModule } from '@angular/material/divider';
+import {MatTableModule} from '@angular/material/table';
+
 import { ToastrModule } from 'ngx-toastr';
 import { AuthService } from './auth/auth.service';
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { HeaderComponent } from './header/header.component';
+
+import { ColorSketchModule } from 'ngx-color/sketch';
+import { ColorCircleModule } from 'ngx-color/circle';
+import { ColorTwitterModule } from 'ngx-color/twitter';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +53,8 @@ import { HeaderComponent } from './header/header.component';
     ComDashboardComponent,
     ReportComponent,
     HomeLayoutComponent,
-    HeaderComponent
+    HeaderComponent,
+    MyOrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +63,9 @@ import { HeaderComponent } from './header/header.component';
     FormsModule,
     HttpClientModule,
     ToastrModule.forRoot(),
+    ColorSketchModule,
+    ColorCircleModule,
+    ColorTwitterModule,
     MatCardModule,
     MatInputModule,
     MatTabsModule,
@@ -62,7 +73,8 @@ import { HeaderComponent } from './header/header.component';
     MatRadioModule,
     MatIconModule,
     MatToolbarModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTableModule
   ],
   providers: [
     AuthGuard,
