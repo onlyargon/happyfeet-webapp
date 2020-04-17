@@ -20,7 +20,11 @@ export class HeaderComponent implements OnInit {
   }
 
   gotoProfile(){
-    this._router.navigate(['profile']);
+    if(JSON.parse(localStorage.getItem('userType')) == "Customer"){
+      this._router.navigate(['profile']);
+    }else{
+      this._router.navigate(['com-profile']);
+    }
   }
 
 }

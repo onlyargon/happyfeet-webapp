@@ -28,6 +28,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { ToastrModule } from 'ngx-toastr';
 import { AuthService } from './auth/auth.service';
@@ -38,6 +41,7 @@ import { ColorSketchModule } from 'ngx-color/sketch';
 import { ColorCircleModule } from 'ngx-color/circle';
 import { ColorTwitterModule } from 'ngx-color/twitter';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { ComCustOrdersComponent } from './com-cust-orders/com-cust-orders.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +58,8 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
     ReportComponent,
     HomeLayoutComponent,
     HeaderComponent,
-    MyOrdersComponent
+    MyOrdersComponent,
+    ComCustOrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +79,10 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
     MatIconModule,
     MatToolbarModule,
     MatDividerModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     AuthGuard,

@@ -1,1 +1,117 @@
-<p>com-profile works!</p>
+<div>
+  <div class="container col-sm-12 heading v-center">
+
+    <p class="page-headling">Hello {{loggedUser}}</p><br>
+  </div>
+
+  <div class="container">
+    <div class="col-sm-12 WhiteBg p-5 mt-50">
+      <div class="col-sm-6">
+        <div class="col-sm-12">
+          <h1>Basic info</h1>
+        </div>
+        <hr>
+        <form>
+          <div class="col-sm-12">
+            <mat-form-field class="full-width">
+              <mat-label>Username</mat-label>
+              <input matInput placeholder="John Doe" disabled value={{loggedUser}}>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-6">
+            <mat-form-field class="full-width">
+              <mat-label>Company name</mat-label>
+              <input name="firstName" matInput placeholder="John" [(ngModel)]="user?.basicInfo.companyName">
+            </mat-form-field>
+          </div>
+          <div class="col-sm-6">
+            <mat-form-field class="full-width">
+              <mat-label>Business registration number</mat-label>
+              <input name="lastName" matInput placeholder="Doe" [(ngModel)]="user?.basicInfo.	brNumber">
+            </mat-form-field>
+          </div>
+          <div class="col-sm-12">
+            <mat-form-field class="full-width">
+              <mat-label>Google map location url</mat-label>
+              <input name="gender" matInput placeholder="Male" [(ngModel)]="user?.basicInfo.location">
+            </mat-form-field>
+          </div>
+          <div class="col-sm-6">
+            <mat-form-field class="full-width">
+              <mat-label>Mobile</mat-label>
+              <input name="mobile" matInput placeholder="771123445" [(ngModel)]="user?.basicInfo.mobileNumber">
+            </mat-form-field>
+          </div>
+          <div class="col-sm-6">
+            <mat-form-field class="full-width">
+              <mat-label>Email</mat-label>
+              <input name="email" matInput placeholder="example@d.com" [(ngModel)]="user?.basicInfo.email">
+            </mat-form-field>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="col-sm-12">
+          <h1>Address details</h1>
+        </div>
+        <hr>
+        <form>
+          <div class="col-sm-4">
+            <mat-form-field class="full-width">
+              <mat-label>Address Line 1</mat-label>
+              <input name="add1" matInput [(ngModel)]="user?.address.addressLine1">
+            </mat-form-field>
+          </div>
+          <div class="col-sm-4">
+            <mat-form-field class="full-width">
+              <mat-label>Address Line 2</mat-label>
+              <input name="add2" matInput [(ngModel)]="user?.address.addressLine2">
+            </mat-form-field>
+          </div>
+          <div class="col-sm-4">
+            <mat-form-field class="full-width">
+              <mat-label>Address Line 3</mat-label>
+              <input name="add3" matInput [(ngModel)]="user?.address.addressLine3">
+            </mat-form-field>
+          </div>
+          <div class="col-sm-6">
+            <mat-form-field class="full-width">
+              <mat-label>Zip Code / Postal Code</mat-label>
+              <input name="zip" matInput [(ngModel)]="user?.address.zipCode">
+            </mat-form-field>
+          </div>
+          <div class="col-sm-6">
+            <mat-form-field class="full-width">
+              <mat-label>State</mat-label>
+              <input name="state" matInput  [(ngModel)]="user?.address.state">
+            </mat-form-field>
+          </div>
+          <div class="col-sm-6">
+            <mat-form-field class="full-width">
+              <mat-label>City</mat-label>
+              <input name="city" matInput [(ngModel)]="user?.address.city">
+            </mat-form-field>
+          </div>
+        </form>
+
+      </div>
+      <div class="col-sm-12 float-right">
+        <button mat-flat-button color="accent" (click)="goback()">Back</button>
+        <p>&nbsp;</p>
+        <button mat-flat-button color="primary" (click)="saveProfile()">Save</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer col-sm-12 v-center">
+    <p class="page-headling">Contact us</p><br>
+    <p class="page-sub"> 24x7 we are here for your co-oparation. Please feel free to contact us via hotline <br>or find
+      the near by store to you.</p>
+    <button mat-flat-button color="primary">Find Store</button>
+    <br>
+    <p><strong>Hotline</strong> : +94 777 123 4567 | <strong>Email</strong> : info@happyfeet.com |
+      <strong>Address</strong> : 19/C Nugegoda, Colombo, Sri Lanka</p>
+  </div>
+</div>

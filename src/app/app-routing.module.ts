@@ -12,6 +12,8 @@ import { ComProfileComponent } from './com-profile/com-profile.component';
 import { AboutComponent } from './about/about.component';
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { ComHomeComponent } from './com-home/com-home.component';
+import { ComCustOrdersComponent } from './com-cust-orders/com-cust-orders.component';
 
 
 const routes: Routes = [
@@ -101,6 +103,24 @@ const routes: Routes = [
       {
         path: "",
         redirectTo: "/com-profile",
+        pathMatch: "full"
+      },
+      {
+        path: "com-home",
+        component: ComHomeComponent
+      },
+      {
+        path: "",
+        redirectTo: "/com-home",
+        pathMatch: "full"
+      },
+      {
+        path: "order-reqs",
+        component: ComCustOrdersComponent
+      },
+      {
+        path: "",
+        redirectTo: "/order-reqs",
         pathMatch: "full"
       },
     ]

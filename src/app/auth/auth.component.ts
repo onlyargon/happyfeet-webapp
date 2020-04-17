@@ -25,14 +25,26 @@ export class AuthComponent implements OnInit {
         .signIn(this.auth.username, this.auth.password)
         .subscribe((resp: any) => {
           if (resp.token) {
+
             localStorage.setItem("token", resp.token);
             localStorage.setItem("userName", JSON.stringify(resp.data.Data.username));
             localStorage.setItem("userId", JSON.stringify(resp.data.Data.userId));
+            localStorage.setItem("userType", JSON.stringify(resp.data.Data.userType));
 
             if(resp.data.Data.isProfileCompleted){
-              this._router.navigate(['/']);
+              if(resp.data.Data.userType == "Customer"){
+                this._router.navigate(['/']);
+              }
+              else {
+                this._router.navigate(['/com-home']);
+              }
             } else {
-              this._router.navigate(['/profile']);
+              if(resp.data.Data.userType == "Customer"){
+                this._router.navigate(['/profile']);
+              }
+              else {
+                this._router.navigate(['/com-profile']);
+              }
             }
           } else {
             this.toastr.error("Something went wrong!");

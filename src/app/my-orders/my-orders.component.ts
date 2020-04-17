@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonService } from '../common.service';
 import { ToastrService } from 'ngx-toastr';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-my-orders',
@@ -15,9 +16,12 @@ export class MyOrdersComponent implements OnInit {
   displayedColumns: string[] = ['orderNumber', 'orderStatus', 'acceptedDate', 'deliverOn', 'action'];
   dataSource = new MatTableDataSource<any>(this.myOrders);
 
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+
   constructor(private _service:CommonService, private _ts : ToastrService) { }
 
   ngOnInit(): void {
+    this.dataSource.paginator = this.paginator;
     this.getMyOrders();
   }
 
@@ -39,5 +43,23 @@ export class MyOrdersComponent implements OnInit {
   }
 
   findStore(){}
+
+  cancelOrder(element){
+
+    element.isDeleted = true;
+    element.isActive = false;
+    element.orderStatus = "Order canceled by " + JSON.parse(localStorage.getItem('userName'));
+
+    this._service.updateOrder(element).subscribe((data:any)=> {
+      if (data.Code == 0) {
+        this._ts.success("Order updated!");
+      } else {
+        this._ts.error(data.Message);
+      }
+    },
+    (err) => {
+      this._ts.error(err);
+    });
+  }
 
 }

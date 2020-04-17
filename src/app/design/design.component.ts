@@ -130,7 +130,7 @@ export class DesignComponent implements OnInit {
   async placeOrder() {
     if (this.design.id) {
       var obj = {
-        userId: localStorage.getItem("userId"),
+        userId: JSON.parse(localStorage.getItem("userId")),
         designId: this.design.id,
       };
 
@@ -145,7 +145,7 @@ export class DesignComponent implements OnInit {
           this.design = data.Data;
 
           var obj = {
-            userId: localStorage.getItem("userId"),
+            userId: JSON.parse(localStorage.getItem("userId")),
             designId: this.design.id,
           };
 
