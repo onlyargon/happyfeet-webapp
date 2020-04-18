@@ -4,6 +4,7 @@ import { MatTableDataSource } from "@angular/material/table";
 import { CommonService } from "../common.service";
 import { ToastrService } from "ngx-toastr";
 import { Router } from "@angular/router";
+import { ProfileService } from '../profile/profile.service';
 
 @Component({
   selector: "app-com-cust-orders",
@@ -15,6 +16,10 @@ export class ComCustOrdersComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   selectedOrder = {} as any;
+  user = {
+    basicInfo : {} as any,
+    address: {} as any
+  } as any;
 
   design = {} as any;
   displayedColumns: string[] = ["orderNumber", "orderStatus", "view"];
@@ -25,7 +30,8 @@ export class ComCustOrdersComponent implements OnInit {
   constructor(
     private _service: CommonService,
     private _ts: ToastrService,
-    private _router: Router
+    private _router: Router,
+    private _profileService:ProfileService
   ) {
     this.minDate = new Date(new Date().getTime() -1);
   }
@@ -63,6 +69,7 @@ export class ComCustOrdersComponent implements OnInit {
       if (data.Code == 0) {
         this.design = data.Data;
         this.initColors();
+        this.viewUser(obj.userId)
       } else {
         this._ts.error(data.Message);
       }
@@ -101,5 +108,18 @@ export class ComCustOrdersComponent implements OnInit {
     } else {
       this._ts.warning("Please fill the mandetory fields!");
     }
+  }
+
+  viewUser(uid){
+    var obj = {
+      userId: uid,
+    };
+
+    this._profileService.getUserProfile(obj).subscribe((data: any) => {
+      if (data.Data) {
+        console.log(data);
+        this.user = data.Data;
+      }
+    });
   }
 }

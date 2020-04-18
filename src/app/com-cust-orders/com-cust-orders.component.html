@@ -90,6 +90,15 @@
       <p>&nbsp;</p>
       <button mat-flat-button color="primary" *ngIf="design.size" (click)="acceptOrder()">Accept Order</button>
     </div>
+    <div class="col-sm-12 WhiteBg p-5 mt-50" *ngIf="user?.basicInfo.firstName">
+      <h1>User Details</h1>
+      <ul>
+        <li>User Name : {{user?.basicInfo.firstName}} {{user?.basicInfo.lastName}}</li>
+        <li>Phone number : {{user?.basicInfo.mobileNumber}}</li>
+        <li>Address : {{user?.address.addressLine1}} {{user?.address.addressLine2}} {{user?.address.addressLine3}} <br>
+          {{user?.address.city}} {{user?.address.zipCode}} </li>
+      </ul>
+    </div>
   </div>
 </div>
 <div class="container">
