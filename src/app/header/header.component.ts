@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  loggedUser = 'Hello there';
+  loggedUser = JSON.parse(localStorage.getItem('userName'))
   constructor(private auth:AuthService, private _router: Router) { }
 
   ngOnInit(): void {
@@ -24,6 +24,14 @@ export class HeaderComponent implements OnInit {
       this._router.navigate(['profile']);
     }else{
       this._router.navigate(['com-profile']);
+    }
+  }
+
+  goHome(){
+    if(JSON.parse(localStorage.getItem('userType')) == "Customer"){
+      this._router.navigate(['home']);
+    }else{
+      this._router.navigate(['com-home']);
     }
   }
 

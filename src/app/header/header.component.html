@@ -10,8 +10,8 @@
     <button mat-flat-button (click)="gotoProfile()">
       <mat-icon>person_outline</mat-icon> Logged user : {{ loggedUser }}
     </button>
-    <button mat-button>
-      <mat-icon>notifications_none</mat-icon> Notifications
+    <button mat-button (click)="goHome()">
+      <mat-icon>home</mat-icon> Home
     </button>
     <button mat-button><mat-icon>build</mat-icon> Settings</button>
     <button mat-flat-button color="warn" (click)="signOut()">
