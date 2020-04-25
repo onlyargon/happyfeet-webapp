@@ -50,6 +50,9 @@
         <p>Logo attachement</p>
         <input type="file" name="logo" [(ngModel)]="design.attachement">
       </div>
+      <div class="col-sm-12 mt-10">
+        <h3 class="price">Price (LKR): {{this.design?.orderPrice | number : '.2-2'}}</h3>
+      </div>
       <div class="col-sm-12 mt-10 float-right">
         <button mat-flat-button color="accent" (click)="goback()">Back</button>
         <p>&nbsp;</p>
@@ -63,12 +66,15 @@
       <div class="p-5 WhiteBg">
         <p>Select VAMP color</p>
         <color-twitter (onChangeComplete)="vampColorChage($event)"></color-twitter>
+        <h3>(LKR) + 700.00</h3>
         <br>
         <p>Select QUATER color</p>
         <color-twitter (onChangeComplete)="quaterColorChage($event)"></color-twitter>
+        <h3>(LKR) + 500.00</h3>
         <br>
         <p>Select SOLE color</p>
         <color-twitter (onChangeComplete)="soleColorChage($event)"></color-twitter>
+        <h3>(LKR) + 450.00</h3>
       </div>
     </div>
   </div>

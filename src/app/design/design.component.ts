@@ -8,12 +8,22 @@ import { ToastrService } from "ngx-toastr";
   styleUrls: ["./design.component.css"],
 })
 export class DesignComponent implements OnInit {
+
+  // price = 1000.00;
+
   design = {
     category: "Men",
     occasion: "Casual",
     type: "Shoes",
+    orderPrice: 1000.00
   } as any;
   myDesign = [];
+
+
+  isVampSelected = false;
+  isQuaterSelected = false;
+  isSoleSelected = false;
+
   constructor(private _service: CommonService, private _ts: ToastrService) {}
 
   ngOnInit(): void {
@@ -68,18 +78,31 @@ export class DesignComponent implements OnInit {
   }
 
   soleColorChage($event) {
+    if(!this.isSoleSelected){
+      this.isSoleSelected = true;
+      this.design.orderPrice = this.design.orderPrice + 450;
+    }
     var color = $event.color;
     this.design.soleColor = color.hex;
     document.getElementById("sole").style.fill = color.hex;
   }
 
   quaterColorChage($event) {
+    if(!this.isQuaterSelected){
+      this.isQuaterSelected = true;
+      this.design.orderPrice = this.design.orderPrice + 500;
+    }
     var color = $event.color;
     this.design.quaterColor = color.hex;
     document.getElementById("quater").style.fill = color.hex;
   }
 
   vampColorChage($event) {
+    if(!this.isVampSelected){
+      this.isVampSelected = true;
+      this.design.orderPrice = this.design.orderPrice + 700;
+    }
+
     var color = $event.color;
     this.design.vampColor = color.hex;
     document.getElementById("vamp").style.fill = color.hex;
@@ -132,6 +155,7 @@ export class DesignComponent implements OnInit {
       var obj = {
         userId: JSON.parse(localStorage.getItem("userId")),
         designId: this.design.id,
+        orderPrice: this.design.orderPrice
       };
 
       this.saveOrder(obj);
