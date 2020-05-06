@@ -68,6 +68,7 @@ export class MyOrdersComponent implements OnInit {
   }
 
   viewCompany(element){
+    console.log(element);
     var obj = {
       userId: element.comId,
     };
