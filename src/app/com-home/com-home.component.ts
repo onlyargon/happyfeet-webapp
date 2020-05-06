@@ -61,4 +61,8 @@ export class ComHomeComponent implements OnInit {
     });
   }
 
+  viewDashboard(){
+    window.open('../../assets/dashboard.html')
+  }
+
 }
