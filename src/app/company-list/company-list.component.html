@@ -1,0 +1,20 @@
+<div class="container col-sm-12 heading v-center">
+
+  <p class="page-headling">Company list</p><br>
+  <!-- <p class="page-sub">Companies that make this happen</p> -->
+  <!-- <button mat-flat-button color="warn" (click)="viewMoreAbout()">Read more</button> -->
+</div>
+
+<div class="container">
+  <!-- {{companyList | json}} -->
+
+  <div class="col-sm-4 WhiteBg mt-10 p-5" *ngFor="let com of companyList">
+    <h3>{{com.company.companyName}}</h3>
+    <ul>
+      <li>Mobile : {{com.company.mobileNumber}}</li>
+      <li>Email : {{com.company.email}}</li>
+      <li>{{com.address.addressLine1 + " " + com.address.addressLine2 + " " + com.address.addressLine3 }}</li>
+      <li>{{com.address.city}}</li>
+    </ul>
+  </div>
+</div>

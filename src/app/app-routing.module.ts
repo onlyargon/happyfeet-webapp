@@ -14,6 +14,7 @@ import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { ComHomeComponent } from './com-home/com-home.component';
 import { ComCustOrdersComponent } from './com-cust-orders/com-cust-orders.component';
+import { CompanyListComponent } from './company-list/company-list.component';
 
 
 const routes: Routes = [
@@ -83,6 +84,15 @@ const routes: Routes = [
       {
         path: "",
         redirectTo: "/about",
+        pathMatch: "full"
+      },
+      {
+        path: "company-list",
+        component: CompanyListComponent
+      },
+      {
+        path: "",
+        redirectTo: "/company-list",
         pathMatch: "full"
       },
 

@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   }
 
   findStore(){
-
+    this._route.navigate(['company-list']);
   }
 
   myOrders(){

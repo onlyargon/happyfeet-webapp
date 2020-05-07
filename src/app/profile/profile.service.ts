@@ -20,4 +20,8 @@ export class ProfileService {
   updateProfile(obj){
     return this.http.post(HOME_URL + 'users/update', obj)
   }
+
+  getAllCompanies(obj){
+    return this.http.post(HOME_URL + 'users/get-all-companies', obj)
+  }
 }

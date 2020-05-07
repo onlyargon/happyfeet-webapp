@@ -42,6 +42,7 @@ import { ColorCircleModule } from 'ngx-color/circle';
 import { ColorTwitterModule } from 'ngx-color/twitter';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { ComCustOrdersComponent } from './com-cust-orders/com-cust-orders.component';
+import { CompanyListComponent } from './company-list/company-list.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { ComCustOrdersComponent } from './com-cust-orders/com-cust-orders.compon
     HomeLayoutComponent,
     HeaderComponent,
     MyOrdersComponent,
-    ComCustOrdersComponent
+    ComCustOrdersComponent,
+    CompanyListComponent
   ],
   imports: [
     BrowserModule,

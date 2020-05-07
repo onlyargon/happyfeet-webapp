@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { ProfileService } from '../profile/profile.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-orders',
@@ -23,7 +24,7 @@ export class MyOrdersComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  constructor(private _service:CommonService, private _ts : ToastrService, private _profileService: ProfileService) { }
+  constructor(private _service:CommonService, private _ts : ToastrService, private _profileService: ProfileService, private _router:Router) { }
 
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
@@ -47,7 +48,9 @@ export class MyOrdersComponent implements OnInit {
     });
   }
 
-  findStore(){}
+  findStore(){
+    this._router.navigate(['company-list']);
+  }
 
   cancelOrder(element){
 
